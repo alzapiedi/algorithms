@@ -51,8 +51,7 @@ Trie.prototype.has = function (word) {
   return !!node;
 }
 
-Trie.prototype.wordsWithPrefix = function (prefix, seen) {
-  seen = seen || [];
+Trie.prototype.wordsWithPrefix = function (prefix) {
   var node = this.lookup(prefix);
   return node.wordsBeneath();
 }
