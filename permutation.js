@@ -1,13 +1,12 @@
-function permutations (arr) {
-  if (arr.length == 0) return [[]];
+function permutations(arr) {
+  if (arr.length === 0) return [[]];
   var perms = [];
-  var first, rest, newPerms;
   for (var i = 0; i < arr.length; i++) {
-    first = arr[i];
-    rest = arr.slice(0, i).concat(arr.slice(i+1));
-    newPerms = permutations(rest).map(function(permutation) {
-      permutation.push(first);
-      return permutation;
+    var first = arr[i];
+    var rest = arr.slice(0, i).concat(arr.slice(i+1));
+    var newPerms = permutations(rest).map(function (perm) {
+      perm.push(first);
+      return perm;
     });
     perms = perms.concat(newPerms);
   }
