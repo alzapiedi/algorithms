@@ -4,9 +4,9 @@ function parenthesis(str, idx) {
   for (var i = idx + 1; i < str.length; i++) {
     if (str[i] === ")") {
       if (par === 0) return i;
-      par -= 1;
+      par--;
     } else if (str[i] === "(") {
-      par += 1;
+      par++;
     }
   }
   throw new Error("No ending parenthesis");

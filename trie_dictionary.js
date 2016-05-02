@@ -64,3 +64,25 @@ words.forEach(function (word) {
 });
 
 T.wordsWithPrefix("ba");
+
+var map = new Map();
+map.set(1, ["a", "b", "c"]);
+map.set(2, ["d", "e", "f"]);
+var dictionary = new Trie();
+dictionary.addWord('ad');
+dictionary.addWord('be');
+dictionary.addWord('de');
+
+
+function t9(input, words, node, prefix) {
+  if (!input.length && node.word) {
+    words.push(prefix);
+    return;
+  }
+  var letters = map.get(input[0]);
+  for (var i = 0; i < letters.length; i++) {
+    var l = letters[i];
+    if (node.get(l)) t9(input.slice(1), words, node.get(l), prefix + l);
+  }
+  return words;
+}

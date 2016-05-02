@@ -32,7 +32,7 @@ Bst.prototype.insert = function (node, key, value) {
   } else {
     r.value = value;
   }
-  if (this.isRed(r.right)) { r = this.rotateLeft(r); }
+  if (this.isRed(r.right) && !this.isRed(r.left)) { r = this.rotateLeft(r); }
   if (this.isRed(r.left) && this.isRed(r.right)) { this.flipColors(r); }
   if (this.isRed(r.left) && this.isRed(r.left.left)) { r = this.rotateRight(r); }
   return r;

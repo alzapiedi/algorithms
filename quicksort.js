@@ -1,22 +1,18 @@
+var swap = function (arr, i, j) {
+  var t = arr[i];
+  arr[i] = arr[j];
+  arr[j] = t;
+}
+
 var partition = function (array, lo, hi) {
   var i = lo + 1, j = hi, temp;
-  while (true) {
-    while (array[i] < array[lo]) {
-      i += 1;
-      if (i == hi) { break; }
-    }
-    while (array[j] > array[lo]) {
-      j -= 1;
-      if (j == lo) { break; }
-    }
+  while (i <= hi && j >= lo) {
+    while (array[i] < array[lo]) i++;
+    while (array[j] > array[lo]) j--;
     if (i >= j) { break; }
-    temp = array[i];
-    array[i] = array[j];
-    array[j] = temp;
+    swap(arr, i, j);
   }
-  temp = array[lo];
-  array[lo] = array[j];
-  array[j] = temp;
+  swap(arr, lo, j);
   return j;
 }
 

@@ -49,7 +49,6 @@ ShortestPath.prototype.visit = function (v) {
 }
 ShortestPath.prototype.relax = function (edge) {
   if (!this.distTo[edge.w] || this.distTo[edge.w] > this.distTo[edge.v] + edge.weight) {
-    debugger;
     this.distTo[edge.w] = this.distTo[edge.v] + edge.weight;
     this.edgeTo[edge.w] = edge;
   }
